@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectsGridCard from './ProjectsGridCard';
 
-export default class ProjectsGrid extends Component {
+export default class Project extends Component {
   constructor() {
     super();
     this.state = {
@@ -160,19 +160,29 @@ export default class ProjectsGrid extends Component {
   }
 
   render() {
+    const project = this.state.list.filter(p => p.id === parseInt(this.props.match.params.id))[0];
     return (
       <section className="content-block projects" id="projects">
         <div className="top-block" id="about-title">
-          <h3 className="fancy-font">Projects</h3>
+          <h3 className="fancy-font">{project.title}</h3>
+        </div>
+        <div className="links">
+          <span className="project-link">
+            <a target="_blank" rel="noopener noreferrer" href={project.link}>Live App</a>
+          </span>
+          <span className="project-link">
+            <a target="_blank" rel="noopener noreferrer" href={project.github}>Github Link</a>
+          </span>
         </div>
         <div className="project-cards">
           {
-            this.state.list.map(project =>
-              <Link to={`/project/${project.id}`}>
-                <ProjectsGridCard key={project.id} project={project} />
-              </Link>
+            project.desc.map(desc =>
+              <p>{desc}</p>
             )
           }
+        </div>
+        <div className="tech-used">
+          {project.icons.map(icon => <i className={`${icon}`}></i>)}
         </div>
       </section>
     )

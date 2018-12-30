@@ -9,6 +9,7 @@ import Education from './components/layout/Education';
 import Projects from './components/layout/Projects';
 import Contact from './components/layout/Contact';
 import ProjectsGrid from './components/layout/ProjectsGrid';
+import Project from './components/layout/Project';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
               <Route exact path="/about" component={About} />
               <Route exact path="/education" component={Education} />
               <Route exact path="/projects" component={ProjectsGrid} />
+              <Route path="/project/:id" component={Project} />
               <Route exact path="/contact" component={Contact} />
             </Switch>
           </div>
