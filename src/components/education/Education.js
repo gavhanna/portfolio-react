@@ -44,14 +44,14 @@ export default class Education extends Component {
 
   render() {
     return (
-      <section class="content-block education" id="education">
-        <div class="left-block">
-          <h3 class="fancy-font">Education</h3>
+      <section className="content-block education" id="education">
+        <div className="left-block">
+          <h3 className="fancy-font">Education</h3>
         </div>
-        <div class="right-block">
+        <div className="right-block">
           {
-            this.state.list.map(item =>
-              <EducationCard info={item} />
+            this.state.list.map((item, i) =>
+              <EducationCard key={i} info={item} />
             )
           }
         </div>

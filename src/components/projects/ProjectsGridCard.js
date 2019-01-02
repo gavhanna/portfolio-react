@@ -8,7 +8,7 @@ export default class ProjectsGridCard extends Component {
       <div className="project-card">
 
         <div className="card-image">
-          <img src="http://fillmurray.com/200/200" alt="" />
+          <img src={project.img} alt={project.title} style={{ width: "300px" }} />
         </div>
         <div className="card-body">
           <h3>{project.title}</h3>
